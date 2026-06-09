@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink text-white font-sans antialiased;
+  }
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Soft gradient text used on key headlines */
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-white to-electric bg-clip-text text-transparent;
+  }
+  /* Thin label / eyebrow used above section titles */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.22em] text-electric;
+  }
+}
