@@ -9,6 +9,15 @@
   body {
     @apply bg-ink text-white font-sans antialiased;
   }
+  ::selection {
+    background: rgba(61, 123, 255, 0.35);
+  }
+  /* Visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid #3d7bff;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
   /* Respect users who prefer reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -23,12 +32,18 @@
 }
 
 @layer components {
-  /* Soft gradient text used on key headlines */
   .text-gradient {
     @apply bg-gradient-to-r from-white via-white to-electric bg-clip-text text-transparent;
   }
-  /* Thin label / eyebrow used above section titles */
   .eyebrow {
     @apply font-mono text-xs uppercase tracking-[0.22em] text-electric;
+  }
+  /* Glass surface used across cards/panels */
+  .glass {
+    @apply rounded-2xl border border-hairline bg-panel/70 backdrop-blur-xl shadow-card;
+  }
+  /* Mono telemetry label (command-center vernacular) */
+  .telemetry {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-slatemute;
   }
 }

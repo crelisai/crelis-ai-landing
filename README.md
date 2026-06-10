@@ -1,19 +1,9 @@
-# Crelis.ai — Landing Page
+# Crelis.ai — The Trust Layer for Agentic AI
 
-A single-page, responsive landing site for **Crelis.ai**, the Enterprise AI Control Plane.
-Built with **React 18 + Vite + Tailwind CSS**. No paid assets, no backend required.
+Multi-page marketing site for **Crelis.ai**. AI executes. Crelis governs. Humans intervene when trust matters.
 
----
-
-## Tech stack
-
-- **Vite** — build tooling / dev server
-- **React 18** — UI
-- **Tailwind CSS 3** — styling (tokens in `tailwind.config.js`)
-- **lucide-react** — open-source icons (MIT)
-- **Google Fonts** — Space Grotesk, Inter, JetBrains Mono (free)
-
----
+Built with **React 18 + Vite 5 + Tailwind CSS 3 + React Router 7 + Framer Motion**.
+No backend, no stock images — all visuals are SVG / CSS / motion graphics. All data is mocked.
 
 ## Run locally
 
@@ -21,71 +11,68 @@ Requires **Node.js 18+**.
 
 ```bash
 npm install      # install dependencies
-npm run dev      # start dev server → http://localhost:5173
+npm run dev      # dev server → http://localhost:5173
 npm run build    # production build → ./dist
-npm run preview  # preview the production build locally
+npm run preview  # preview the production build
 ```
 
----
+## Project structure
 
-## Where to edit content
+```
+src/
+  main.jsx                 # entry + BrowserRouter
+  App.jsx                  # layout shell, routes, ScrollToTop, 404
+  index.css                # Tailwind layers + glass/telemetry utilities
+  data/mock.js             # ALL mock data — swap for API calls later
+  components/
+    Nav.jsx / Footer.jsx
+    ui/Primitives.jsx      # Section, Reveal, GlowCard, CTAs, Logo, trust-state tokens
+    visuals/
+      DecisionLane.jsx     # hero signature: animated task routing
+      AgentNetwork.jsx     # animated agent graph
+      TrustEngine.jsx      # interactive risk/confidence routing demo
+      Flows.jsx            # EscalationFlow + AuditTimeline
+      Dashboards.jsx       # Marketplace experts, TrustScore, Governance
+  pages/
+    Home.jsx  TrustLayer.jsx  Marketplace.jsx  UseCases.jsx  About.jsx  Demo.jsx
+```
 
-Everything lives in **`src/App.jsx`**. Search for `// EDIT:` comments — each marks
-a piece of copy (headline, CTA labels, card text, etc.). Repeated cards (capabilities,
-use cases, deployment models) are simple arrays at the top of their section.
+### Trust-state color language
 
-- **Colors & fonts:** `tailwind.config.js` (`ink`, `panel`, `electric`, `cyan`, …)
-- **Page title / SEO:** `index.html`
-- **Favicon:** `public/favicon.svg`
+Used consistently across every component (defined in `tailwind.config.js` and
+`ui/Primitives.jsx` → `STATE`):
 
-### Connecting the contact form
+| State  | Meaning              | Color            |
+|--------|----------------------|------------------|
+| ai     | AI / agent activity  | electric #3D7BFF |
+| review | human review needed  | amber  #FBBF24   |
+| verify | approved / verified  | green  #34D399   |
+| block  | blocked by policy    | rose   #FB7185   |
 
-The form in `Contact()` is a **placeholder** — on submit it logs to the console and
-shows a success state. To make it real, replace the `handleSubmit` function with a
-POST to a form service (Formspree, Resend, Basin) or a Vercel serverless function.
+## Editing content
 
----
+- **Copy & cards:** mostly arrays at the top of each page in `src/pages/`
+- **Mock demo data:** `src/data/mock.js` (single future API integration point)
+- **Colors & fonts:** `tailwind.config.js`
+- **SEO:** `index.html` · **Logo:** `ui/Primitives.jsx` (`Logo`) + `public/favicon.svg`
+
+### Contact form
+
+`src/pages/Demo.jsx` is a placeholder — submit shows a success state locally.
+Wire `handleSubmit` to Formspree/Resend/Basin or a Vercel function. Use
+`VITE_CONTACT_ENDPOINT` from `.env.local` (see `.env.example`).
 
 ## Deploy to Vercel
 
-### Option A — Git + Vercel dashboard (recommended)
+`vercel.json` is included (framework: vite, SPA rewrites for client-side routing).
 
-1. Push this project to a GitHub / GitLab / Bitbucket repo:
-   ```bash
-   git init
-   git add .
-   git commit -m "Crelis.ai landing page"
-   git branch -M main
-   git remote add origin <your-repo-url>
-   git push -u origin main
-   ```
-2. Go to **https://vercel.com/new** and **Import** the repo.
-3. Vercel auto-detects Vite. Confirm the settings:
-   - **Framework Preset:** Vite
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-   - **Install Command:** `npm install`
-4. Click **Deploy**. You'll get a live `*.vercel.app` URL in ~1 minute.
-5. (Optional) Add a custom domain under **Project → Settings → Domains**.
+1. Push to GitHub
+2. Import the repo at vercel.com/new
+3. Vercel auto-detects Vite — accept defaults and deploy
 
-### Option B — Vercel CLI (no Git needed)
+## Accessibility
 
-```bash
-npm i -g vercel        # install the CLI once
-vercel login           # authenticate
-vercel                 # deploy a preview (answer the prompts; accept defaults)
-vercel --prod          # promote to production
-```
-
-When prompted, accept the detected Vite settings (build `npm run build`, output `dist`).
-
----
-
-## Deploy elsewhere
-
-- **Netlify:** build command `npm run build`, publish directory `dist`.
-- **Cloudflare Pages:** framework preset *Vite*, build command `npm run build`, output `dist`.
-
----
-
-© 2026 Crelis.ai. All rights reserved.
+- Skip-to-content link, keyboard-visible focus rings
+- `prefers-reduced-motion` respected (CSS + Framer Motion `useReducedMotion`)
+- SVG visuals carry `role="img"` + descriptive labels; decorative layers are `aria-hidden`
+- Interactive demos use proper `aria-pressed` / radiogroup semantics
