@@ -55,7 +55,14 @@ function Hero() {
             className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <PrimaryCTA to="/demo">Request demo</PrimaryCTA>
-            <GhostCTA to="/trust-layer">Explore trust layer</GhostCTA>
+            <a
+              href="https://demo.crelis.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-lg border border-electric/40 bg-panel2/60 px-5 py-3 text-sm font-medium text-electric transition hover:border-electric hover:bg-electric/10"
+            >
+              Launch Interactive Demo
+            </a>
           </motion.div>
 
           <motion.p
@@ -231,7 +238,14 @@ function FinalCTA() {
           </p>
           <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <PrimaryCTA to="/demo">Request demo</PrimaryCTA>
-            <GhostCTA to="/demo">Join the pilot</GhostCTA>
+            <a
+              href="https://demo.crelis.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-lg border border-electric/40 bg-panel2/60 px-5 py-3 text-sm font-medium text-electric transition hover:border-electric hover:bg-electric/10"
+            >
+              Launch Interactive Demo
+            </a>
           </div>
         </div>
       </Reveal>
