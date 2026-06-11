@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 
 /* ── Trust-state color language (used everywhere) ──────────────────────────
    ai = electric blue · review = amber · verify = green · block = rose      */
@@ -86,6 +86,22 @@ export function GhostCTA({ to, children, className = '' }) {
     >
       {children}
     </Link>
+  )
+}
+
+/* ── External CTA (opens in a new tab) ─────────────────────────────────── */
+export function ExternalCTA({ href, children, className = '' }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center justify-center gap-2 rounded-lg border border-electric/40 bg-panel2/60 px-5 py-3 text-sm font-medium text-electric transition hover:border-electric hover:bg-electric/10 ${className}`}
+    >
+      {children}
+      <ExternalLink className="h-4 w-4" aria-hidden />
+      <span className="sr-only"> (opens in a new tab)</span>
+    </a>
   )
 }
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ShieldAlert, GitBranch, Gauge, UserCheck, ScrollText, Lock, ArrowRight, Network } from 'lucide-react'
-import { Section, SectionHead, Reveal, GlowCard, PrimaryCTA, GhostCTA, STATE } from '../components/ui/Primitives.jsx'
+import { Section, SectionHead, Reveal, GlowCard, PrimaryCTA, ExternalCTA, STATE } from '../components/ui/Primitives.jsx'
 import DecisionLane from '../components/visuals/DecisionLane.jsx'
 import TrustEngine from '../components/visuals/TrustEngine.jsx'
 import { EscalationFlow } from '../components/visuals/Flows.jsx'
@@ -52,18 +52,21 @@ function Hero() {
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.24 }}
-            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:items-center"
           >
-            <PrimaryCTA to="/demo">Request demo</PrimaryCTA>
-            <a
-              href="https://demo.crelis.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-electric/40 bg-panel2/60 px-5 py-3 text-sm font-medium text-electric transition hover:border-electric hover:bg-electric/10"
-            >
-              Launch Interactive Demo
-            </a>
+            <PrimaryCTA to="/demo" className="justify-center">Request demo</PrimaryCTA>
+            <ExternalCTA href="https://demo.crelis.ai">Launch Interactive Demo</ExternalCTA>
           </motion.div>
+
+          {/* proof strip */}
+          <motion.p
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.32 }}
+            className="mt-6 telemetry"
+          >
+            Built for banks · insurers · government · regulated enterprises
+          </motion.p>
 
           <motion.p
             initial={reduce ? false : { opacity: 0 }}
@@ -236,16 +239,9 @@ function FinalCTA() {
           <p className="relative mx-auto mt-4 max-w-xl text-slatemute">
             Join the pilot program and put a trust layer between your agents and the real world.
           </p>
-          <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <PrimaryCTA to="/demo">Request demo</PrimaryCTA>
-            <a
-              href="https://demo.crelis.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-electric/40 bg-panel2/60 px-5 py-3 text-sm font-medium text-electric transition hover:border-electric hover:bg-electric/10"
-            >
-              Launch Interactive Demo
-            </a>
+          <div className="relative mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:items-center">
+            <PrimaryCTA to="/demo" className="justify-center">Request demo</PrimaryCTA>
+            <ExternalCTA href="https://demo.crelis.ai">Launch Interactive Demo</ExternalCTA>
           </div>
         </div>
       </Reveal>
