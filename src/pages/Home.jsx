@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ShieldAlert, GitBranch, Gauge, UserCheck, ScrollText, Lock, ArrowRight, Network } from 'lucide-react'
 import { Section, SectionHead, Reveal, GlowCard, PrimaryCTA, ExternalCTA, STATE } from '../components/ui/Primitives.jsx'
-import DecisionLane from '../components/visuals/DecisionLane.jsx'
+import ControlPlane from '../components/visuals/ControlPlane.jsx'
 import TrustEngine from '../components/visuals/TrustEngine.jsx'
 import { EscalationFlow } from '../components/visuals/Flows.jsx'
 import { MarketplaceDashboard } from '../components/visuals/Dashboards.jsx'
@@ -78,9 +78,9 @@ function Hero() {
           </motion.p>
         </div>
 
-        {/* signature visual */}
+        {/* signature visual — live enterprise control plane */}
         <Reveal className="mt-14" delay={0.15}>
-          <DecisionLane />
+          <ControlPlane />
         </Reveal>
       </div>
     </section>

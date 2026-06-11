@@ -1,7 +1,9 @@
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BadgeCheck, Star } from 'lucide-react'
 import { EXPERTS, GOVERNANCE } from '../../data/mock.js'
 import { STATE, StatusDot, Reveal } from '../ui/Primitives.jsx'
+import { Sparkline, useLive, useInterval, fmt, tnum } from './Console.jsx'
 
 /* ── TRUST SCORE WIDGET (radial) ───────────────────────────────────────── */
 export function TrustScore({ value, size = 56 }) {
@@ -81,22 +83,48 @@ export function MarketplaceDashboard({ className = '' }) {
   )
 }
 
-/* ── GOVERNANCE DASHBOARD ──────────────────────────────────────────────── */
-export function GovernanceDashboard({ className = '' }) {
+/* ── GOVERNANCE DASHBOARD (live) ────────────────────────────────────────── */
+// One ticking metric tile with a trend sparkline.
+function LiveStat({ stat, live }) {
+  const cfg = stat.live
+  const [val, setVal] = useState(cfg.base)
+  useInterval(() => {
+    setVal((v) => {
+      if (cfg.kind === 'pct') {
+        const next = cfg.base + (Math.random() - 0.5) * 2 * (cfg.drift || 0)
+        return Math.round(next * 10) / 10
+      }
+      return v + (cfg.step || 0) + Math.round((Math.random() - 0.5) * 2 * (cfg.jitter || 0))
+    })
+  }, cfg.interval, live)
+
+  const display = !live ? stat.value : cfg.kind === 'pct' ? `${val.toFixed(1)}%` : fmt(Math.round(val))
+  const color = STATE[stat.state].hex
   return (
-    <div className={`glass overflow-hidden ${className}`}>
+    <div className="flex flex-col justify-between gap-3 bg-panel/80 p-5">
+      <div>
+        <p className={`text-2xl font-semibold ${STATE[stat.state].text} ${tnum}`}>{display}</p>
+        <p className="mt-1 text-xs text-slatemute">{stat.label}</p>
+      </div>
+      <Sparkline data={stat.series} color={color} w={96} h={26} className="w-full opacity-80" />
+    </div>
+  )
+}
+
+export function GovernanceDashboard({ className = '' }) {
+  const ref = useRef(null)
+  const live = useLive(ref)
+  return (
+    <div ref={ref} className={`glass overflow-hidden ${className}`}>
       <div className="flex items-center justify-between border-b border-hairline px-5 py-3">
         <p className="telemetry">Governance · today</p>
         <p className="flex items-center gap-2 font-mono text-[10px] text-slatemute">
-          <StatusDot state="verify" pulse /> all policies active
+          <StatusDot state="verify" pulse={live} /> all policies active
         </p>
       </div>
       <div className="grid grid-cols-2 gap-px bg-hairline lg:grid-cols-4">
         {GOVERNANCE.stats.map((s) => (
-          <div key={s.label} className="bg-panel/80 p-5">
-            <p className={`font-display text-2xl font-semibold ${STATE[s.state].text}`}>{s.value}</p>
-            <p className="mt-1 text-xs text-slatemute">{s.label}</p>
-          </div>
+          <LiveStat key={s.key} stat={s} live={live} />
         ))}
       </div>
       <div className="border-t border-hairline p-5">
@@ -104,7 +132,7 @@ export function GovernanceDashboard({ className = '' }) {
         <ul className="space-y-2">
           {GOVERNANCE.exceptions.map((x) => (
             <li key={x.id} className={`flex items-center gap-3 rounded-lg border px-3 py-2 text-sm ${STATE[x.state].ring} ${STATE[x.state].soft}`}>
-              <StatusDot state={x.state} pulse />
+              <StatusDot state={x.state} pulse={live} />
               <span className="text-white/90">{x.label}</span>
             </li>
           ))}

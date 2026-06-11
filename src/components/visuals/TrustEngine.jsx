@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Bot, ShieldCheck, UserCheck, Ban, CircleCheck } from 'lucide-react'
+import { ShieldCheck, UserCheck, Ban, CircleCheck } from 'lucide-react'
 import { SAMPLE_TASKS } from '../../data/mock.js'
 import { STATE } from '../ui/Primitives.jsx'
+import { AgentGlyph, useLive, useInterval } from './Console.jsx'
 
 /* ============================================================================
    TRUST ENGINE — interactive demo.
@@ -37,17 +38,35 @@ function Gauge({ label, value, color }) {
 }
 
 export default function TrustEngine({ className = '' }) {
+  const ref = useRef(null)
+  const live = useLive(ref)
   const [task, setTask] = useState(SAMPLE_TASKS[1])
+  const [paused, setPaused] = useState(false)
   const d = DECISION[task.decision]
   const Icon = d.icon
 
+  // Auto-cycle through tasks while live; pauses on hover/focus.
+  useInterval(() => {
+    setTask((cur) => {
+      const i = SAMPLE_TASKS.findIndex((t) => t.id === cur.id)
+      return SAMPLE_TASKS[(i + 1) % SAMPLE_TASKS.length]
+    })
+  }, 2800, live && !paused)
+
   return (
-    <div className={`glass overflow-hidden ${className}`}>
+    <div
+      ref={ref}
+      className={`glass overflow-hidden ${className}`}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+    >
       <div className="flex items-center justify-between border-b border-hairline px-5 py-3">
         <p className="telemetry flex items-center gap-2">
-          <ShieldCheck className="h-3.5 w-3.5 text-electric" aria-hidden /> Trust engine · interactive
+          <ShieldCheck className="h-3.5 w-3.5 text-electric" aria-hidden /> Trust engine · {live && !paused ? 'live' : 'interactive'}
         </p>
-        <p className="font-mono text-[10px] text-slatemute">mock data</p>
+        <p className="font-mono text-[10px] text-slatemute">{live && !paused ? 'auto-cycling' : 'mock data'}</p>
       </div>
 
       <div className="grid gap-0 md:grid-cols-[1.1fr_1fr]">
@@ -68,7 +87,7 @@ export default function TrustEngine({ className = '' }) {
                       : 'border-hairline bg-panel2/40 text-slatemute hover:border-electric/30 hover:text-white'
                   }`}
                 >
-                  <Bot className={`h-4 w-4 shrink-0 ${active ? 'text-electric' : 'text-slatemute'}`} aria-hidden />
+                  <AgentGlyph className={`h-4 w-4 shrink-0 ${active ? 'text-electric' : 'text-slatemute'}`} />
                   <span className="flex-1">{t.label}</span>
                   <span className="hidden font-mono text-[10px] text-slatemute sm:block">{t.agent}</span>
                 </button>
