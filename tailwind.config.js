@@ -45,11 +45,18 @@ export default {
           '0%': { transform: 'translateY(-100%)' },
           '100%': { transform: 'translateY(400%)' },
         },
+        drift: {
+          '0%': { transform: 'translateY(14px)', opacity: '0' },
+          '20%': { opacity: '0.7' },
+          '80%': { opacity: '0.2' },
+          '100%': { transform: 'translateY(-110px)', opacity: '0' },
+        },
       },
       animation: {
         floaty: 'floaty 6s ease-in-out infinite',
         dash: 'dash 1.2s linear infinite',
         scan: 'scan 5s ease-in-out infinite',
+        drift: 'drift 10s ease-in-out infinite',
       },
     },
   },

@@ -46,4 +46,16 @@
   .telemetry {
     @apply font-mono text-[11px] uppercase tracking-[0.18em] text-slatemute;
   }
+  /* Trust orb ring rotation — freezes under the reduced-motion rule above */
+  .orb-rotate {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: orb-rotate 40s linear infinite;
+  }
+}
+
+@keyframes orb-rotate {
+  to {
+    transform: rotate(360deg);
+  }
 }

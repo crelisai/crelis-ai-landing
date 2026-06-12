@@ -114,6 +114,68 @@ export const GOVERNANCE = {
   ],
 }
 
+// ── Decision lane feed — the pool of agent actions the live queue cycles ────
+export const DECISION_FEED = [
+  { id: 'f1', agent: 'Support Agent', action: 'Refund $42 · customer 88213', policy: 'CRL-114', risk: 8, decision: 'allow' },
+  { id: 'f2', agent: 'Finance Agent', action: 'Wire $250,000 → ACME-7741', policy: 'WIRE-HIGH', risk: 91, decision: 'review' },
+  { id: 'f3', agent: 'Research Agent', action: 'Summarize Q3 earnings call', policy: 'READ-ONLY', risk: 4, decision: 'allow' },
+  { id: 'f4', agent: 'Ops Agent', action: 'Bulk-delete 12K user records', policy: 'DELETE-SCALE', risk: 99, decision: 'block' },
+  { id: 'f5', agent: 'Clinical Agent', action: 'Update dosage record · pt 4471', policy: 'PHI-GUARD', risk: 97, decision: 'review' },
+  { id: 'f6', agent: 'Procure Agent', action: 'Issue PO $18,400 · vendor NTX', policy: 'VENDOR-PAY', risk: 34, decision: 'allow' },
+  { id: 'f7', agent: 'Support Agent', action: 'Close ticket #29981 · resolved', policy: 'CRL-102', risk: 3, decision: 'allow' },
+  { id: 'f8', agent: 'Fraud Agent', action: 'Freeze card ····7719 · velocity', policy: 'KYC-7', risk: 76, decision: 'review' },
+]
+
+// ── Homepage governance signals — four live proof-point cards ───────────────
+// `tone` overrides the number color when the healthy reading differs from the
+// card's accent (a zero on the false-allow detector is good news).
+export const GOVERNANCE_SIGNALS = [
+  {
+    key: 'policies', label: 'Policies evaluated', state: 'ai',
+    base: 1284409, step: 19, jitter: 8, interval: 800,
+    note: 'today · all environments',
+    series: [820, 858, 904, 942, 1010, 1078, 1148, 1209, 1251, 1284],
+  },
+  {
+    key: 'audit', label: 'Audit chain verified', state: 'verify',
+    base: 48212, step: 5, jitter: 3, interval: 1100,
+    note: 'hash-linked · 100% integrity',
+    series: [44.1, 44.6, 45.2, 45.8, 46.3, 46.9, 47.3, 47.8, 48.0, 48.2],
+  },
+  {
+    key: 'false-allows', label: 'False allows detected', state: 'block', tone: 'verify',
+    base: 0, step: 0, jitter: 0, interval: 4000,
+    note: 'past 30 days · production',
+    series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  },
+  {
+    key: 'review', label: 'Human review routed', state: 'review',
+    base: 2431, step: 1, jitter: 1, interval: 2100,
+    note: 'median pickup 38s',
+    series: [1.9, 2.0, 2.05, 2.12, 2.2, 2.26, 2.31, 2.36, 2.4, 2.43],
+  },
+]
+
+// ── Homepage product previews — the four platform surfaces ──────────────────
+export const PRODUCT_MODULES = [
+  {
+    id: 'studio', name: 'Decision Studio', tag: 'trace', accent: '#3D7BFF',
+    desc: 'Trace any decision end-to-end — the request, detected intent, policy hits, risk factors, and the route it earned.',
+  },
+  {
+    id: 'policy', name: 'Policy Library', tag: 'govern', accent: '#22D3EE',
+    desc: 'Versioned, testable policies your risk team can actually read — applied inline to every action, in milliseconds.',
+  },
+  {
+    id: 'qa', name: 'QA Center', tag: 'verify', accent: '#FBBF24',
+    desc: 'Continuously replay production decisions against goldens to catch drift and false allows before they reach customers.',
+  },
+  {
+    id: 'audit', name: 'Audit Center', tag: 'prove', accent: '#34D399',
+    desc: 'A tamper-evident chain of every decision — who allowed what, when, under which policy — exportable for any regulator.',
+  },
+]
+
 // ── Audit event stream — pool the live log cycles through ───────────────────
 // Each row gets a timestamp + sealed hash at render time so the feed feels live.
 export const AUDIT_STREAM = [
