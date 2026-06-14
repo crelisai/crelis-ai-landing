@@ -1,6 +1,6 @@
 import { BadgeCheck, Clock, ShieldCheck, Wallet } from 'lucide-react'
-import { Section, SectionHead, Reveal, GlowCard, PrimaryCTA, GhostCTA } from '../components/ui/Primitives.jsx'
-import { MarketplaceDashboard } from '../components/visuals/Dashboards.jsx'
+import { Section, SectionHead, Reveal, GlowCard, PilotCTA, GhostCTA } from '../components/ui/Primitives.jsx'
+import ReviewerMarketplace from '../components/visuals/ReviewerMarketplace.jsx'
 import { EscalationFlow } from '../components/visuals/Flows.jsx'
 
 const HOW = [
@@ -27,7 +27,7 @@ export default function Marketplace() {
               approve, and correct AI work when confidence is low or the stakes are high.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <PrimaryCTA to="/demo">Request demo</PrimaryCTA>
+              <PilotCTA />
               <GhostCTA to="/demo">Join as an expert</GhostCTA>
             </div>
           </Reveal>
@@ -38,10 +38,10 @@ export default function Marketplace() {
         <SectionHead
           eyebrow="Live network"
           title="Experts on standby right now"
-          sub="A preview of the reviewer pool — skills, trust scores, and availability. Mock data shown."
+          sub="Filter the reviewer pool by sector. Each profile shows expertise, availability, average review time, and trust clearance. Illustrative data."
         />
-        <div className="mt-12">
-          <MarketplaceDashboard />
+        <div className="mt-10">
+          <ReviewerMarketplace />
         </div>
       </Section>
 

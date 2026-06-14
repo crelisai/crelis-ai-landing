@@ -35,16 +35,17 @@ export default function Nav() {
           <div className="hidden md:block">
             <Link
               to="/demo"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-electric px-4 py-2 text-sm font-medium text-white shadow-glow transition hover:-translate-y-0.5"
+              aria-label="Apply for Pilot Access"
+              className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg bg-electric px-4 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5"
             >
-              Request demo <ArrowRight className="h-4 w-4" />
+              Apply for Pilot Access <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </div>
 
           <button
-            className="md:hidden grid h-9 w-9 place-items-center rounded-lg border border-hairline text-white"
+            className="grid h-11 w-11 place-items-center rounded-lg border border-hairline text-white md:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -60,7 +61,7 @@ export default function Nav() {
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm text-slatemute hover:bg-panel hover:text-white"
+                className="flex min-h-[48px] items-center rounded-lg px-3 text-sm text-slatemute hover:bg-panel hover:text-white"
               >
                 {l.label}
               </NavLink>
@@ -68,9 +69,10 @@ export default function Nav() {
             <Link
               to="/demo"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg bg-electric px-4 py-2.5 text-sm font-medium text-white"
+              aria-label="Apply for Pilot Access"
+              className="mt-2 inline-flex min-h-[48px] items-center justify-center gap-1.5 rounded-lg bg-electric px-4 text-sm font-semibold text-white"
             >
-              Request demo <ArrowRight className="h-4 w-4" />
+              Apply for Pilot Access <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </nav>
         </div>

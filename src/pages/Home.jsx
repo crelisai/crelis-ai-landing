@@ -1,33 +1,16 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ShieldAlert, GitBranch, Gauge, UserCheck, ScrollText, Lock, ArrowRight, ExternalLink, Network } from 'lucide-react'
-import { Section, SectionHead, Reveal, GlowCard, GhostCTA, STATE } from '../components/ui/Primitives.jsx'
+import { ShieldAlert, ShieldCheck, GitBranch, Gauge, UserCheck, ScrollText, Lock, ArrowRight, ExternalLink, Network } from 'lucide-react'
+import { Section, SectionHead, Reveal, GlowCard, PilotCTA, DemoCTA, STATE } from '../components/ui/Primitives.jsx'
 import ControlPlane from '../components/visuals/ControlPlane.jsx'
 import TrustEngine from '../components/visuals/TrustEngine.jsx'
-import TrustOrb from '../components/visuals/TrustOrb.jsx'
-import TrustPipeline from '../components/visuals/TrustPipeline.jsx'
+import TrustFlowOrbit from '../components/visuals/TrustFlowOrbit.jsx'
+import DecisionPipeline from '../components/visuals/DecisionPipeline.jsx'
 import GovernanceSignals from '../components/visuals/GovernanceSignals.jsx'
 import ProductPreviews from '../components/visuals/ProductPreviews.jsx'
 import CursorGlow from '../components/effects/CursorGlow.jsx'
 import { MarketplaceDashboard } from '../components/visuals/Dashboards.jsx'
 import { USE_CASES } from '../data/mock.js'
-
-/* ── CTA hierarchy ──────────────────────────────────────────────────────────
-   Primary: Launch Interactive Demo (external) · Secondary: Request Demo     */
-function LaunchCTA({ className = '' }) {
-  return (
-    <a
-      href="https://demo.crelis.ai"
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-electric px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90 ${className}`}
-    >
-      Launch Interactive Demo
-      <ExternalLink className="h-4 w-4" aria-hidden />
-      <span className="sr-only"> (opens in a new tab)</span>
-    </a>
-  )
-}
 
 /* ── Hero atmosphere — grid, aurora, flowing lines, drifting particles ───── */
 const PARTICLES = [
@@ -92,6 +75,24 @@ function Hero() {
       <Atmosphere />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        {/* MVP / Pilot-stage credibility banner */}
+        <Reveal className="mb-10">
+          <div className="flex flex-col items-start gap-3 rounded-2xl border border-electric/25 bg-electric/[0.07] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="flex items-start gap-3 text-sm leading-relaxed text-slatemute">
+              <span className="mt-0.5 shrink-0 rounded-md border border-electric/40 bg-electric/15 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-electric">
+                MVP · Pilot stage
+              </span>
+              <span>
+                Crelis is currently in prototype stage and accepting pilot design partners for AI
+                agent governance, trust scoring, and human escalation workflows.
+              </span>
+            </p>
+            <Link to="/demo" aria-label="Apply for Pilot Access" className="shrink-0 whitespace-nowrap text-sm font-semibold text-electric transition-colors hover:text-white">
+              Apply for Pilot Access →
+            </Link>
+          </div>
+        </Reveal>
+
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
           <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
             <motion.p
@@ -100,7 +101,7 @@ function Hero() {
               transition={{ duration: 0.6 }}
               className="eyebrow inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/10 px-4 py-1.5"
             >
-              <Network className="h-3.5 w-3.5" aria-hidden /> Enterprise AI trust platform
+              <ShieldCheck className="h-3.5 w-3.5" aria-hidden /> Security for AI
             </motion.p>
 
             <motion.h1
@@ -131,10 +132,8 @@ function Hero() {
               transition={{ duration: 0.7, delay: 0.24 }}
               className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center lg:justify-start"
             >
-              <LaunchCTA />
-              <GhostCTA to="/demo" className="justify-center">
-                Request Demo <ArrowRight className="h-4 w-4" aria-hidden />
-              </GhostCTA>
+              <PilotCTA />
+              <DemoCTA />
             </motion.div>
 
             <motion.p
@@ -157,7 +156,7 @@ function Hero() {
           </div>
 
           <Reveal delay={0.2}>
-            <TrustOrb />
+            <TrustFlowOrbit />
           </Reveal>
         </div>
 
@@ -177,10 +176,10 @@ function Pipeline() {
       <SectionHead
         eyebrow="Inside the trust engine"
         title="Every action earns its execution"
-        sub="Each AI action travels six gates in milliseconds — the request is detected for intent, checked against policy, scored for risk, decided, and sealed into the audit chain."
+        sub="Each AI action moves through five steps in milliseconds — received, trust-scored, checked against policy, risk-classified, then routed to AI or to a human."
       />
       <Reveal className="mt-12">
-        <TrustPipeline />
+        <DecisionPipeline />
       </Reveal>
     </Section>
   )
@@ -351,10 +350,8 @@ function FinalCTA() {
             See how Crelis detects, decides, and proves every AI action — live, in your browser.
           </p>
           <div className="relative mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <LaunchCTA />
-            <GhostCTA to="/demo" className="justify-center">
-              Request Demo <ArrowRight className="h-4 w-4" aria-hidden />
-            </GhostCTA>
+            <PilotCTA />
+            <DemoCTA />
           </div>
         </div>
       </Reveal>

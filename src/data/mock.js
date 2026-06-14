@@ -256,3 +256,20 @@ export const ROADMAP = [
   { id: 'audit', label: 'Audit engine', desc: 'Tamper-evident execution records with cryptographic sealing and export.', status: 'Pilot' },
   { id: 'orchestration', label: 'Workforce orchestration', desc: 'Routing, SLAs, and quality scoring across human reviewer pools.', status: 'In design' },
 ]
+
+// ── Reviewer pool — illustrative, role-based profiles (no real individuals) ──
+// Sectors map to the marketplace filters. `status` drives availability.
+export const REVIEWER_SECTORS = ['Banking', 'Insurance', 'Legal', 'Healthcare', 'Compliance']
+
+export const REVIEWERS = [
+  { id: 'r1', sector: 'Banking', role: 'Treasury & Wire Reviewer', expertise: ['Wire approval', 'AML / sanctions', 'Payment fraud'], status: 'online', avgReview: '6 min', clearance: 'Tier 3 · High' },
+  { id: 'r2', sector: 'Banking', role: 'Credit & Lending Analyst', expertise: ['Loan approval', 'Credit risk', 'KYC'], status: 'online', avgReview: '9 min', clearance: 'Tier 2 · Elevated' },
+  { id: 'r3', sector: 'Insurance', role: 'Claims Adjudicator', expertise: ['Claim review', 'FNOL', 'Fraud indicators'], status: 'online', avgReview: '11 min', clearance: 'Tier 2 · Elevated' },
+  { id: 'r4', sector: 'Insurance', role: 'Underwriting Reviewer', expertise: ['Policy issuance', 'Medical disclosure', 'Risk rating'], status: 'busy', avgReview: '14 min', clearance: 'Tier 2 · Elevated' },
+  { id: 'r5', sector: 'Legal', role: 'Contracts Analyst', expertise: ['Redlining', 'Procurement', 'Clause risk'], status: 'online', avgReview: '18 min', clearance: 'Tier 3 · High' },
+  { id: 'r6', sector: 'Legal', role: 'Disputes & Appeals Reviewer', expertise: ['Disclosure', 'Appeals', 'Regulatory sign-off'], status: 'busy', avgReview: '22 min', clearance: 'Tier 3 · High' },
+  { id: 'r7', sector: 'Healthcare', role: 'Clinical Data Specialist', expertise: ['HIPAA', 'Dosage records', 'PHI access'], status: 'online', avgReview: '8 min', clearance: 'Tier 3 · High' },
+  { id: 'r8', sector: 'Healthcare', role: 'Vulnerable-Customer Reviewer', expertise: ['Bereavement claims', 'Hardship', 'Duty of care'], status: 'online', avgReview: '12 min', clearance: 'Tier 2 · Elevated' },
+  { id: 'r9', sector: 'Compliance', role: 'AML / Sanctions Officer', expertise: ['Sanctions screening', 'PEP', 'SAR filing'], status: 'online', avgReview: '7 min', clearance: 'Tier 3 · High' },
+  { id: 'r10', sector: 'Compliance', role: 'Model Governance Reviewer', expertise: ['Explainability', 'Model cards', 'Audit evidence'], status: 'busy', avgReview: '16 min', clearance: 'Tier 2 · Elevated' },
+]

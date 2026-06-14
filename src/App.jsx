@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, useLocation, Link } from 'react-router-dom'
 import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
+import StickyMobileCTA from './components/StickyMobileCTA.jsx'
 import Home from './pages/Home.jsx'
 import TrustLayer from './pages/TrustLayer.jsx'
 import Marketplace from './pages/Marketplace.jsx'
@@ -33,7 +34,7 @@ function NotFound() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ink">
+    <div className="min-h-screen bg-ink pb-[76px] md:pb-0">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-electric focus:px-4 focus:py-2 focus:text-sm focus:text-white"
@@ -54,6 +55,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <StickyMobileCTA />
     </div>
   )
 }

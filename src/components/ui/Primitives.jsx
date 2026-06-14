@@ -71,9 +71,9 @@ export function PrimaryCTA({ to = '/demo', children = 'Request demo', className 
   return (
     <Link
       to={to}
-      className={`inline-flex items-center gap-2 rounded-lg bg-electric px-5 py-3 text-sm font-medium text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90 ${className}`}
+      className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-5 text-sm font-medium text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90 ${className}`}
     >
-      {children} <ArrowRight className="h-4 w-4" />
+      {children} <ArrowRight className="h-4 w-4" aria-hidden />
     </Link>
   )
 }
@@ -82,7 +82,7 @@ export function GhostCTA({ to, children, className = '' }) {
   return (
     <Link
       to={to}
-      className={`inline-flex items-center gap-2 rounded-lg border border-hairline bg-panel/60 px-5 py-3 text-sm font-medium text-white transition hover:border-electric/40 hover:bg-panel ${className}`}
+      className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg border border-hairline bg-panel/60 px-5 text-sm font-medium text-white transition hover:border-electric/40 hover:bg-panel ${className}`}
     >
       {children}
     </Link>
@@ -100,6 +100,36 @@ export function ExternalCTA({ href, children, className = '' }) {
     >
       {children}
       <ExternalLink className="h-4 w-4" aria-hidden />
+      <span className="sr-only"> (opens in a new tab)</span>
+    </a>
+  )
+}
+
+/* ── Pilot-stage CTA hierarchy ─────────────────────────────────────────────
+   Primary: Apply for Pilot Access (internal) · Secondary: View Trust Engine
+   Demo (external). Both ≥48px tall for mobile touch targets.               */
+export function PilotCTA({ to = '/demo', children = 'Apply for Pilot Access', className = '' }) {
+  return (
+    <Link
+      to={to}
+      aria-label="Apply for Pilot Access"
+      className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90 ${className}`}
+    >
+      {children} <ArrowRight className="h-4 w-4" aria-hidden />
+    </Link>
+  )
+}
+
+export function DemoCTA({ children = 'View Trust Engine Demo', className = '' }) {
+  return (
+    <a
+      href="https://demo.crelis.ai"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="View Trust Engine Demo (opens in a new tab)"
+      className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg border border-hairline bg-panel/60 px-6 text-sm font-medium text-white transition hover:border-electric/40 hover:bg-panel ${className}`}
+    >
+      {children} <ExternalLink className="h-4 w-4" aria-hidden />
       <span className="sr-only"> (opens in a new tab)</span>
     </a>
   )
