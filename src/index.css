@@ -59,3 +59,88 @@
     transform: rotate(360deg);
   }
 }
+
+/* 3D depth helpers — used by the Trust Flow Orbit core and decision pane.
+   The global prefers-reduced-motion rule above freezes these animations. */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.tilt3d {
+  animation: tilt3d 14s ease-in-out infinite;
+}
+@keyframes tilt3d {
+  0%,
+  100% {
+    transform: rotateX(11deg) rotateY(-15deg);
+  }
+  50% {
+    transform: rotateX(-7deg) rotateY(15deg);
+  }
+}
+
+/* ── Cinematic Trust Flow Orbit emblem ─────────────────────────────────────
+   A physical-emblem tumble (rotateY dominant + rotateX/Z wobble + scale breath),
+   a sweeping specular highlight, a breathing ground shadow, and a soft beam
+   pulse. All freeze under the global prefers-reduced-motion rule above. */
+.emblem-spin {
+  animation: emblem-spin 12s linear infinite;
+}
+@keyframes emblem-spin {
+  0% {
+    transform: rotateY(0deg) rotateX(8deg) rotateZ(-2deg) translateZ(0) scale(1);
+  }
+  25% {
+    transform: rotateY(90deg) rotateX(-6deg) rotateZ(2deg) translateZ(10px) scale(1.04);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(8deg) rotateZ(-2deg) translateZ(0) scale(1);
+  }
+  75% {
+    transform: rotateY(270deg) rotateX(-6deg) rotateZ(2deg) translateZ(10px) scale(1.04);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(8deg) rotateZ(-2deg) translateZ(0) scale(1);
+  }
+}
+.sheen-sweep {
+  animation: sheen-sweep 6s ease-in-out infinite;
+}
+@keyframes sheen-sweep {
+  0% {
+    transform: translateX(-160%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.55;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(160%);
+    opacity: 0;
+  }
+}
+.shadow-breathe {
+  animation: shadow-breathe 12s ease-in-out infinite;
+}
+@keyframes shadow-breathe {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(0.66);
+    opacity: 0.3;
+  }
+}
+@keyframes beam-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}

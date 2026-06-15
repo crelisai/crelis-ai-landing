@@ -135,6 +135,23 @@ export function DemoCTA({ children = 'View Trust Engine Demo', className = '' })
   )
 }
 
+/* ── Window frame — app-window chrome (traffic-light dots + title bar) ───── */
+export function WindowFrame({ title, children, className = '' }) {
+  return (
+    <div className={`glass overflow-hidden ${className}`}>
+      <div className="flex items-center gap-2 border-b border-hairline bg-panel2/50 px-3.5 py-2">
+        <span className="flex gap-1.5" aria-hidden>
+          <span className="h-2.5 w-2.5 rounded-full bg-block/60" />
+          <span className="h-2.5 w-2.5 rounded-full bg-review/60" />
+          <span className="h-2.5 w-2.5 rounded-full bg-verify/60" />
+        </span>
+        {title && <span className="truncate font-mono text-[10px] text-slatemute">{title}</span>}
+      </div>
+      {children}
+    </div>
+  )
+}
+
 /* ── Crelis logo (unchanged brand mark) ────────────────────────────────── */
 export function Logo({ size = 'md' }) {
   const box = size === 'lg' ? 'h-9 w-9' : 'h-7 w-7'

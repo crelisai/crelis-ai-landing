@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { GOVERNANCE_SIGNALS } from '../../data/mock.js'
-import { STATE, StatusDot, Reveal } from '../ui/Primitives.jsx'
+import { STATE, StatusDot, Reveal, WindowFrame } from '../ui/Primitives.jsx'
 import { Sparkline, useLive, useLiveCount, fmt, tnum } from './Console.jsx'
 
 /* ============================================================================
@@ -19,15 +19,17 @@ function SignalCard({ signal, live }) {
   })
   const tone = STATE[signal.tone || signal.state]
   return (
-    <div className="glass relative h-full overflow-hidden p-5 transition duration-300 hover:-translate-y-1 hover:border-electric/30 hover:shadow-glow">
-      <div className="flex items-center justify-between gap-3">
-        <p className="telemetry">{signal.label}</p>
-        <StatusDot state={signal.state} pulse={live} />
+    <WindowFrame title={`signal://${signal.key}`} className="h-full transition duration-300 hover:-translate-y-1 hover:border-electric/30 hover:shadow-glow">
+      <div className="relative p-5">
+        <div className="flex items-center justify-between gap-3">
+          <p className="telemetry">{signal.label}</p>
+          <StatusDot state={signal.state} pulse={live} />
+        </div>
+        <p className={`mt-4 text-3xl font-semibold ${tone.text} ${tnum}`}>{fmt(value)}</p>
+        <p className="mt-1 font-mono text-[11px] text-slatemute">{signal.note}</p>
+        <Sparkline data={signal.series} color={STATE[signal.state].hex} w={120} h={28} className="mt-4 w-full opacity-80" />
       </div>
-      <p className={`mt-4 text-3xl font-semibold ${tone.text} ${tnum}`}>{fmt(value)}</p>
-      <p className="mt-1 font-mono text-[11px] text-slatemute">{signal.note}</p>
-      <Sparkline data={signal.series} color={STATE[signal.state].hex} w={120} h={28} className="mt-4 w-full opacity-80" />
-    </div>
+    </WindowFrame>
   )
 }
 
