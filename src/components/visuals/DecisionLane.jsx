@@ -111,8 +111,8 @@ export default function DecisionLane({ className = '' }) {
   return (
     <div ref={ref} className={`glass relative overflow-hidden ${className}`}>
       {/* header */}
-      <div className="flex items-center justify-between gap-3 border-b border-hairline px-4 py-2.5 sm:px-5">
-        <p className="telemetry flex items-center gap-2">
+      <div className="flex items-center justify-between gap-3 border-b border-electric/25 bg-gradient-to-r from-electric/[0.14] via-transparent to-cyan/[0.07] px-4 py-2.5 sm:px-5">
+        <p className="telemetry flex items-center gap-2 text-white/90">
           <span className={`relative inline-flex h-2 w-2 ${live ? '' : 'opacity-60'}`}>
             {live && <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric opacity-60" />}
             <span className="relative inline-flex h-2 w-2 rounded-full bg-electric" />

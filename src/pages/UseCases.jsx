@@ -1,4 +1,5 @@
-import { Check } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Check, ArrowRight } from 'lucide-react'
 import { Section, SectionHead, Reveal, GlowCard, PrimaryCTA } from '../components/ui/Primitives.jsx'
 import { USE_CASES } from '../data/mock.js'
 import { AuditTimeline } from '../components/visuals/Flows.jsx'
@@ -41,6 +42,29 @@ export default function UseCases() {
             </Reveal>
           ))}
         </div>
+      </Section>
+
+      <Section>
+        <Reveal>
+          <Link
+            to="/use-cases/problem"
+            className="group relative block overflow-hidden rounded-3xl border border-electric/25 bg-gradient-to-br from-panel2 via-panel to-ink p-8 transition hover:border-electric/40 sm:p-10"
+          >
+            <div className="pointer-events-none absolute -top-20 right-0 h-56 w-72 rounded-full bg-electric/10 blur-[100px]" aria-hidden />
+            <p className="eyebrow mb-3">Why this matters · the problem</p>
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              The problem Crelis governs
+            </h2>
+            <p className="mt-3 max-w-2xl text-slatemute leading-relaxed">
+              Ungoverned agents create three structural gaps — accountability, certainty, and
+              compliance visibility. Read the in-depth breakdown of each.
+            </p>
+            <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-electric transition-colors group-hover:text-white">
+              Read the full problem breakdown
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </span>
+          </Link>
+        </Reveal>
       </Section>
 
       <Section>

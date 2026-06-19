@@ -21,10 +21,10 @@ export default function ControlPlane({ className = '' }) {
 
       <div className="relative space-y-3 sm:space-y-4">
         {/* chrome bar */}
-        <div className="glass flex items-center justify-between gap-3 px-4 py-2.5 sm:px-5">
+        <div className="relative flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-electric/30 bg-gradient-to-r from-electric/[0.16] via-panel2/60 to-cyan/[0.10] px-4 py-2.5 backdrop-blur-xl shadow-[0_0_34px_-12px_rgba(61,123,255,0.65)] sm:px-5">
           <div className="flex min-w-0 items-center gap-3">
             <ChromeDots />
-            <p className="telemetry truncate">Crelis control plane</p>
+            <p className="telemetry truncate text-white/90">Crelis control plane</p>
           </div>
           <div className="hidden items-center gap-3 font-mono text-[10px] text-slatemute sm:flex">
             <span className="flex items-center gap-1.5"><StatusDot state="verify" pulse /> {CONTROL_PLANE.env}</span>

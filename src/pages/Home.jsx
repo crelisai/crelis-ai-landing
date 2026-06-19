@@ -187,9 +187,9 @@ function Pipeline() {
 
 /* ── PROBLEM ───────────────────────────────────────────────────────────── */
 const PROBLEMS = [
-  { icon: ShieldAlert, title: 'Actions without accountability', desc: 'Agents now move money, change records, and touch customers. One ungoverned action can become a regulatory event.' },
-  { icon: Gauge, title: 'Confidence is not certainty', desc: 'Models act with the same authority at 99% confidence and at 60%. Nothing in the stack tells them when to stop.' },
-  { icon: Lock, title: 'Compliance can’t see inside', desc: 'Risk and audit teams are asked to approve AI programs they cannot inspect, replay, or attribute decisions to.' },
+  { id: 'accountability', icon: ShieldAlert, title: 'Actions without accountability', desc: 'Agents now move money, change records, and touch customers directly. One ungoverned action — a wrong refund, an over-shared record, a deletion at scale — can become a regulatory event, with no one able to say why it happened.' },
+  { id: 'confidence', icon: Gauge, title: 'Confidence is not certainty', desc: 'A model acts with the same authority at 99% confidence and at 60%. Nothing in the stack weighs the stakes or tells it when an action is too consequential to take alone.' },
+  { id: 'compliance', icon: Lock, title: 'Compliance can’t see inside', desc: 'Risk and audit teams must sign off on AI they cannot inspect, replay, or attribute decisions to. Without an evidence trail, “trust us” is the only assurance — and it doesn’t pass an audit.' },
 ]
 
 function Problem() {
@@ -198,19 +198,30 @@ function Problem() {
       <SectionHead
         eyebrow="The problem"
         title="AI agents are powerful. Ungoverned, they're a liability."
-        sub="Agentic AI is crossing from suggesting to executing. Most enterprises have no layer between an agent's decision and the real world."
+        sub="Agentic AI is crossing from suggesting to executing. Most enterprises have no layer between an agent's decision and the real world — and no way to prove what happened after the fact."
       />
       <div className="mt-12 grid gap-5 md:grid-cols-3">
         {PROBLEMS.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.1}>
-            <GlowCard className="h-full">
-              <p.icon className="h-6 w-6 text-block" aria-hidden />
-              <h3 className="mt-4 font-display text-lg font-semibold text-white">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slatemute">{p.desc}</p>
-            </GlowCard>
+            <Link to="/use-cases/problem" aria-label={`${p.title} — read the full breakdown`} className="group block h-full">
+              <GlowCard className="flex h-full flex-col">
+                <p.icon className="h-6 w-6 text-block" aria-hidden />
+                <h3 className="mt-4 font-display text-lg font-semibold text-white">{p.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slatemute">{p.desc}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-electric transition-colors group-hover:text-white">
+                  Read the full breakdown
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                </span>
+              </GlowCard>
+            </Link>
           </Reveal>
         ))}
       </div>
+      <Reveal className="mt-8" delay={0.1}>
+        <Link to="/use-cases/problem" className="inline-flex items-center gap-1.5 text-sm text-electric transition-colors hover:text-white">
+          Read the in-depth breakdown of all three <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
+      </Reveal>
     </Section>
   )
 }

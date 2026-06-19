@@ -3,10 +3,12 @@ import { Routes, Route, useLocation, Link } from 'react-router-dom'
 import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
 import StickyMobileCTA from './components/StickyMobileCTA.jsx'
+import Watermark from './components/Watermark.jsx'
 import Home from './pages/Home.jsx'
 import TrustLayer from './pages/TrustLayer.jsx'
 import Marketplace from './pages/Marketplace.jsx'
 import UseCases from './pages/UseCases.jsx'
+import ProblemDepth from './pages/ProblemDepth.jsx'
 import About from './pages/About.jsx'
 import Demo from './pages/Demo.jsx'
 
@@ -35,6 +37,7 @@ function NotFound() {
 export default function App() {
   return (
     <div className="min-h-screen bg-ink pb-[76px] md:pb-0">
+      <Watermark />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-electric focus:px-4 focus:py-2 focus:text-sm focus:text-white"
@@ -49,6 +52,7 @@ export default function App() {
           <Route path="/trust-layer" element={<TrustLayer />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/use-cases/problem" element={<ProblemDepth />} />
           <Route path="/about" element={<About />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="*" element={<NotFound />} />
