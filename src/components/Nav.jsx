@@ -7,6 +7,8 @@ const LINKS = [
   { label: 'Trust Layer', to: '/trust-layer' },
   { label: 'Marketplace', to: '/marketplace' },
   { label: 'Use Cases', to: '/use-cases' },
+  { label: 'Design Partners', to: '/design-partners' },
+  { label: 'Security', to: '/security' },
   { label: 'About', to: '/about' },
 ]
 
