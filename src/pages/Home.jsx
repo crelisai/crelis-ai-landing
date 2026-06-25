@@ -83,8 +83,8 @@ function Hero() {
                 MVP · Pilot stage
               </span>
               <span>
-                Crelis is currently in prototype stage and accepting pilot design partners for AI
-                agent governance, trust scoring, and human escalation workflows.
+                Crelis is currently in prototype stage and accepting pilot design partners for
+                runtime authorization of AI agent actions — allow, approve, escalate, or block.
               </span>
             </p>
             <Link to="/demo" aria-label="Apply for Pilot Access" className="shrink-0 whitespace-nowrap text-sm font-semibold text-electric transition-colors hover:text-white">
@@ -101,7 +101,7 @@ function Hero() {
               transition={{ duration: 0.6 }}
               className="eyebrow inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/10 px-4 py-1.5"
             >
-              <ShieldCheck className="h-3.5 w-3.5" aria-hidden /> Security for AI
+              <ShieldCheck className="h-3.5 w-3.5" aria-hidden /> Runtime Authorization for AI Agents
             </motion.p>
 
             <motion.h1
@@ -110,9 +110,9 @@ function Hero() {
               transition={{ duration: 0.7, delay: 0.08 }}
               className="mt-6 font-display text-4xl font-semibold tracking-tight text-white sm:text-6xl"
             >
-              The Trust Plane for{' '}
+              Every AI agent can execute work. Crelis decides whether it{' '}
               <span className="bg-gradient-to-r from-electric via-cyan to-electric bg-clip-text text-transparent">
-                Enterprise AI
+                should
               </span>
             </motion.h1>
 
@@ -122,8 +122,9 @@ function Hero() {
               transition={{ duration: 0.7, delay: 0.16 }}
               className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slatemute sm:text-lg lg:mx-0"
             >
-              Crelis evaluates AI actions before execution — detecting intent, applying policy,
-              routing risk, and proving every decision with an audit trail.
+              The independent, deterministic authorization layer that sits in front of AI agent
+              actions — allow, require human approval, escalate, or block — in real time, across
+              any model or vendor, with tamper-evident proof.
             </motion.p>
 
             <motion.div
@@ -151,7 +152,7 @@ function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mt-8 font-mono text-xs tracking-wide text-slatemute"
             >
-              AI executes · Crelis governs · Humans intervene when trust matters
+              Everyone guards what AI says · Crelis governs what it does
             </motion.p>
           </div>
 

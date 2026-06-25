@@ -42,7 +42,7 @@ export default function TrustOrb({ className = '' }) {
         <defs>
           <radialGradient id="orb-core" cx="0.5" cy="0.4" r="0.7">
             <stop offset="0" stopColor="#142347" />
-            <stop offset="1" stopColor="#0B1120" />
+            <stop offset="1" stopColor="#2C313A" />
           </radialGradient>
           <linearGradient id="orb-mark" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="#3D7BFF" />
@@ -117,7 +117,7 @@ export default function TrustOrb({ className = '' }) {
         <circle cx={C} cy={C} r="74" fill="none" stroke="#3D7BFF" strokeOpacity="0.12" strokeWidth="10" />
         <g className="orb-rotate" style={{ animationDuration: '16s' }}>
           <rect x={C - 31} y={C - 31} width="62" height="62" rx="14" fill="url(#orb-mark)" />
-          <rect x={C - 12} y={C - 12} width="24" height="24" rx="5.5" fill="#05070D" />
+          <rect x={C - 12} y={C - 12} width="24" height="24" rx="5.5" fill="#272B31" />
         </g>
       </svg>
 

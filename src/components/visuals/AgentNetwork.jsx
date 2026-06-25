@@ -56,7 +56,7 @@ export default function AgentNetwork({ className = '' }) {
       {NODES.map((n) => (
         <g key={n.id}>
           <circle cx={n.x} cy={n.y} r={n.r + 5} fill="none" stroke={n.core ? '#3D7BFF' : 'rgba(255,255,255,0.15)'} strokeWidth="1" opacity="0.7" />
-          <circle cx={n.x} cy={n.y} r={n.r} fill={n.core ? '#3D7BFF' : '#0F1830'} stroke={n.core ? '#22D3EE' : '#3D7BFF'} strokeOpacity={n.core ? 1 : 0.5} strokeWidth="1.5" />
+          <circle cx={n.x} cy={n.y} r={n.r} fill={n.core ? '#3D7BFF' : '#323740'} stroke={n.core ? '#22D3EE' : '#3D7BFF'} strokeOpacity={n.core ? 1 : 0.5} strokeWidth="1.5" />
         </g>
       ))}
       <text x="250" y="186" textAnchor="middle" fill="#93A3BC" fontSize="9.5" fontFamily="JetBrains Mono, monospace">
