@@ -119,7 +119,7 @@ export default function TrustPipeline({ className = '' }) {
               {/* face plate */}
               <polygon
                 points={hexPoints(x, Y, 30)}
-                fill="#0B1120"
+                fill="#2C313A"
                 stroke={s.color}
                 strokeOpacity={on ? 0.95 : 0.4}
                 strokeWidth={on ? 1.8 : 1.2}
@@ -128,7 +128,7 @@ export default function TrustPipeline({ className = '' }) {
               <foreignObject x={x - 11} y={Y - 11} width="22" height="22">
                 <Icon className="h-[22px] w-[22px]" style={{ color: s.color, opacity: on ? 1 : 0.75, transition: 'opacity 0.4s' }} aria-hidden />
               </foreignObject>
-              <text x={x} y={Y + 62} textAnchor="middle" fill="#fff" fontSize="13" fontFamily="Space Grotesk, sans-serif" fontWeight="600">{s.label}</text>
+              <text x={x} y={Y + 62} textAnchor="middle" fill="#fff" fontSize="13" fontFamily="Bricolage Grotesque, sans-serif" fontWeight="600">{s.label}</text>
               <text x={x} y={Y + 78} textAnchor="middle" fill="#93A3BC" fontSize="9.5" fontFamily="JetBrains Mono, monospace">{s.sub}</text>
               {i < STAGES.length - 1 && (
                 <text x={x + 78} y={Y - 12} textAnchor="middle" fill="#fff" opacity="0.25" fontSize="11">▸</text>

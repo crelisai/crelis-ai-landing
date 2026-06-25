@@ -5,9 +5,9 @@ export default {
     extend: {
       colors: {
         // ── Crelis brand (unchanged) ──────────────────────────────────
-        ink: '#05070D',
-        panel: '#0B1120',
-        panel2: '#0F1830',
+        ink: '#272B31',
+        panel: '#2C313A',
+        panel2: '#323740',
         hairline: 'rgba(255,255,255,0.08)',
         electric: '#3D7BFF',
         cyan: '#22D3EE',
@@ -19,9 +19,9 @@ export default {
         block: '#FB7185',
       },
       fontFamily: {
-        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+        sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+        mono: ['"Spline Sans Mono"', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
         glow: '0 0 0 1px rgba(61,123,255,0.25), 0 18px 60px -20px rgba(61,123,255,0.55)',
