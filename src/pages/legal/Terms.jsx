@@ -42,7 +42,7 @@ export default function Terms() {
           <P>We may update these Terms from time to time; continued use of the Services constitutes acceptance of the updated Terms.</P>
 
           <H>10. Contact</H>
-          <P>Questions about these Terms: <a href="mailto:crelisai@outlook.com" className="text-electric hover:underline">crelisai@outlook.com</a>.</P>
+          <P>Questions about these Terms: <a href="mailto:support@crelis.ai" className="text-electric hover:underline">support@crelis.ai</a>.</P>
         </Reveal>
       </div>
     </section>

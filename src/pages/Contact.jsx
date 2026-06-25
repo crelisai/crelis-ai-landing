@@ -2,7 +2,7 @@ import { Reveal, Section, GlowCard } from '../components/ui/Primitives.jsx'
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
 const CHANNELS = [
-  { icon: Mail, label: 'Email', value: 'crelisai@outlook.com', href: 'mailto:crelisai@outlook.com' },
+  { icon: Mail, label: 'Email', value: 'support@crelis.ai', href: 'mailto:support@crelis.ai' },
   { icon: Phone, label: 'Phone', value: '+65 8110 8085', href: 'tel:+6581108085' },
   { icon: MapPin, label: 'Location', value: 'Singapore', href: null },
 ]
@@ -54,7 +54,7 @@ export default function Contact() {
               {TOPICS.map((t) => (
                 <a
                   key={t.label}
-                  href={`mailto:crelisai@outlook.com?subject=${encodeURIComponent(t.subject)}`}
+                  href={`mailto:support@crelis.ai?subject=${encodeURIComponent(t.subject)}`}
                   className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-hairline bg-panel/60 px-4 text-sm font-medium text-white transition hover:border-electric/40 hover:bg-panel"
                 >
                   {t.label} <ArrowRight className="h-4 w-4 text-electric" aria-hidden />

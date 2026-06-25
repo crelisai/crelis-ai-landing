@@ -16,7 +16,7 @@ export default function ResponsibleDisclosure() {
           <P>We take security seriously and welcome reports from researchers acting in good faith. If you believe you’ve found a vulnerability in Crelis, please tell us before disclosing it publicly.</P>
 
           <H>How to report</H>
-          <P>Email <a href="mailto:crelisai@outlook.com?subject=Security%20disclosure" className="text-electric hover:underline">crelisai@outlook.com</a> with the subject “Security disclosure”. Please include enough detail to reproduce the issue — affected URL or component, steps, and impact.</P>
+          <P>Email <a href="mailto:support@crelis.ai?subject=Security%20disclosure" className="text-electric hover:underline">support@crelis.ai</a> with the subject “Security disclosure”. Please include enough detail to reproduce the issue — affected URL or component, steps, and impact.</P>
 
           <H>Our commitment</H>
           <ul className="mt-3 list-disc space-y-2 pl-5">

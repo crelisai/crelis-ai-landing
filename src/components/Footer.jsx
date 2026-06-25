@@ -70,8 +70,8 @@ export default function Footer() {
             </p>
             <ul className="mt-5 space-y-2.5">
               <li>
-                <a href="mailto:crelisai@outlook.com" className="inline-flex items-center gap-2 text-sm text-slatemute hover:text-white transition-colors">
-                  <Mail className="h-4 w-4 text-electric" aria-hidden /> crelisai@outlook.com
+                <a href="mailto:support@crelis.ai" className="inline-flex items-center gap-2 text-sm text-slatemute hover:text-white transition-colors">
+                  <Mail className="h-4 w-4 text-electric" aria-hidden /> support@crelis.ai
                 </a>
               </li>
               <li>

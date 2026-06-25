@@ -48,7 +48,7 @@ export default function Privacy() {
           <P>We use reasonable technical and organizational measures to protect personal data, including encryption in transit. No method of transmission or storage is completely secure.</P>
 
           <H>10. Contact &amp; Data Protection</H>
-          <P>For privacy questions or PDPA requests, contact our data protection contact at <a href="mailto:crelisai@outlook.com" className="text-electric hover:underline">crelisai@outlook.com</a> or +65 8110 8085.</P>
+          <P>For privacy questions or PDPA requests, contact our data protection contact at <a href="mailto:support@crelis.ai" className="text-electric hover:underline">support@crelis.ai</a> or +65 8110 8085.</P>
 
           <H>11. Changes</H>
           <P>We may update this policy from time to time. The “last updated” date above reflects the latest version.</P>

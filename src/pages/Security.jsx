@@ -116,7 +116,7 @@ export default function Security() {
           <h2 className="font-display text-3xl font-semibold tracking-tight text-gradient">Reviewing Crelis for your team?</h2>
           <p className="mx-auto mt-4 max-w-xl text-slatemute">Request the full Security &amp; Trust Pack, or send your security questionnaire — we’ll turn it around quickly.</p>
           <div className="mt-8">
-            <a href="mailto:crelisai@outlook.com?subject=Security%20%26%20Trust%20Pack%20request" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90">
+            <a href="mailto:support@crelis.ai?subject=Security%20%26%20Trust%20Pack%20request" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90">
               <Mail className="h-4 w-4" aria-hidden /> Request the Security &amp; Trust Pack
             </a>
           </div>

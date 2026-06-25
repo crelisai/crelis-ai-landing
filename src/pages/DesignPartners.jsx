@@ -39,7 +39,7 @@ export default function DesignPartners() {
               A five-slot, co-creation program for regulated teams in Singapore / APAC piloting AI agents that take real actions. Free, time-boxed, and zero risk to your production systems.
             </p>
             <div className="mt-8">
-              <a href="mailto:crelisai@outlook.com?subject=Design%20Partner%20Pilot%20%E2%80%94%20%5BCompany%5D" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90">
+              <a href="mailto:support@crelis.ai?subject=Design%20Partner%20Pilot%20%E2%80%94%20%5BCompany%5D" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90">
                 Apply for the pilot <ArrowRight className="h-4 w-4" aria-hidden />
               </a>
             </div>
@@ -99,7 +99,7 @@ export default function DesignPartners() {
           <h2 className="font-display text-3xl font-semibold tracking-tight text-gradient">Five slots. One conversation to start.</h2>
           <p className="mx-auto mt-4 max-w-xl text-slatemute">Bring one agent scenario to a 30-minute working session and we’ll show you the decision, the explanation, and the audit trail — live.</p>
           <div className="mt-8">
-            <a href="mailto:crelisai@outlook.com?subject=Design%20Partner%20Pilot%20%E2%80%94%20%5BCompany%5D" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90">
+            <a href="mailto:support@crelis.ai?subject=Design%20Partner%20Pilot%20%E2%80%94%20%5BCompany%5D" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-electric px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-electric/90">
               Apply for the pilot <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
           </div>
